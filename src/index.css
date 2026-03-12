@@ -1,3 +1,5 @@
+/* ================= RESET ================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +10,879 @@ body {
   font-family: "Georgia", serif;
   background-color: #f5f1eb;
   color: #3e3a37;
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
 
-a {
+/* ================= NAVBAR LUXURY ================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(245, 241, 235, 0.96);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(198, 167, 94, 0.15);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.03),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
   text-decoration: none;
+  font-size: 18px;
+  color: #3e3a37;
+  transition: 0.3s ease;
+}
+
+.logo a:hover {
+  color: #c6a75e;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3e3a37;
+  font-size: 15px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  left: 0;
+  bottom: -6px;
+  background-color: #c6a75e;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #c6a75e;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.btn-call {
+  background-color: #c6a75e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.btn-call:hover {
+  background-color: #b8954f;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+animation: heroZoom 20s ease-in-out infinite alternate;
+
+  position: relative;
+
+  transition: opacity 1.8s ease-in-out;
+
+  padding: 40px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 46px;
+  font-weight: 400;
+  color: white;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+  opacity: 1;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+}
+
+/* ================= SECTIONS ================= */
+
+.section {
+  padding: 130px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  margin-bottom: 70px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: #c6a75e;
+  margin: 18px auto 0;
+}
+
+/* ================= CARD GRID ================= */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+.card {
+  background-color: white;
+  padding: 55px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #3e3a37;
+  transition: 0.35s ease;
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.08);
+}
+
+.card:active{
+transform:scale(0.97);
+}
+
+.card h3 {
+  margin-bottom: 14px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.card p {
+  font-size: 15px;
+  opacity: 0.75;
+}
+
+/* ================= MEDICO PAGE ================= */
+
+.medico-container {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;  /* ← FOTO PIÙ IN ALTO */
+  justify-content: center;
+}
+
+.medico-image {
+  flex: 1;
+}
+
+.image-placeholder {
+  width: 100%;
+  max-width: 400px;
+  height: 420px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+}
+
+.medico-content {
+  flex: 1;
+  text-align: left;
+}
+
+.medico-content h1 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.medico-content h3 {
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.medico-descrizione {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.medico-descrizione p {
+  opacity: 0.85;
+}
+
+/* ================= TRATTAMENTO PAGE ================= */
+
+.trattamento-container {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.trattamento-content {
+  flex: 1;
+  text-align: left;
+}
+
+.trattamento-content h1 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.trattamento-content h3 {
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.trattamento-descrizione {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+.medico-descrizione h4 {
+  color: #c6a75e;
+  margin-top: 45px;
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.6px;
+}
+
+.medico-descrizione h4::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #c6a75e;
+  margin-top: 8px;
+}
+
+.trattamento-image {
+  flex: 1;
+}
+.trattamento-image img{
+width:100%;
+max-width:520px;
+height:auto;
+object-fit:contain;
+
+border-radius:18px;
+
+box-shadow:0 30px 70px rgba(0,0,0,0.12);
+
+transition:transform 0.35s ease;
+}
+.trattamento-image img:hover{
+transform:scale(1.02);
+}
+
+/* ================= TRATTAMENTO CTA ================= */
+
+.trattamento-cta {
+  margin-top: 60px;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.05);
+}
+
+.trattamento-cta h4 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.trattamento-cta p {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 130px 20px 60px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.footer-info {
+  flex: 1;
+}
+
+.footer-info h3 {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.footer-info p {
+  margin-bottom: 8px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.footer-map {
+  flex: 1;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 340px;
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 70px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .medico-container,
+  .trattamento-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .medico-content,
+  .trattamento-content {
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+}
+/* ================= CTA LUXURY ================= */
+
+.cta-luxury {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 50px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.cta-luxury h2 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.cta-luxury p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.cta-luxury .btn-call {
+  padding: 12px 28px;
+  border-radius: 30px;
+}
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: #3e3a37;
+  transition: 0.3s;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #3e3a37;
+  font-weight: 500;
+}
+
+.mobile-btn {
+  background: #c6a75e;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+}
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #3e3a37;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+}
+.footer-info {
+  text-align: left;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.footer-logo {
+  height: 48px;
+  width: auto;
+}
+
+.footer-info h3 {
+  margin: 0;
+}
+
+.footer-info p {
+  margin: 6px 0;
+}
+.medico-foto {
+  width: 100%;
+  max-width: 380px;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+/* ================= SOCIAL FOOTER ================= */
+
+.footer-social {
+  margin-top: 25px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #3e3a37;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.footer-social {
+  margin-top: 25px;
+  display: flex;
+  gap: 22px;
+}
+
+.footer-social a {
+  color: #3e3a37;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social a:hover {
+  color: #c6a75e;
+  transform: translateY(-2px);
+}
+.footer-social a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.footer-social a:hover {
+  background-color: rgba(198, 167, 94, 0.08);
+}
+/* ===== PRIVACY LINK PREMIUM ===== */
+
+.privacy-link {
+  color: #c6a75e; /* oro satinato */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.privacy-link:hover {
+  opacity: 0.7;
+}
+/* ===== PRIVACY PAGE ULTRA ISTITUZIONALE ===== */
+
+.privacy-container {
+  max-width: 850px;
+  margin: 140px auto 100px auto;
+  padding: 0 24px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #3e3a37;
+}
+
+.privacy-container h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #c6a75e; /* linea oro satinato */
+}
+
+.privacy-container h2 {
+  font-size: 16px;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.privacy-container p {
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+
+  .hero {
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+}
+.studio-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.studio-grid ul {
+  text-align: left;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.studio-grid li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+
+.studio-grid {
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.studio-grid img {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: block;
+}
+
+}
+.studio-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.studio-slider img {
+  min-width: 100%;
+  flex-shrink: 0;
+  border-radius: 10px;
+  max-height: 380px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  scroll-snap-align: center;
+}
+/* ===== STUDIO SLIDER DOTS ===== */
+
+.slider-dots{
+display:flex;
+justify-content:center;
+gap:8px;
+margin-top:15px;
+}
+
+.dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#d6c7a1;
+opacity:0.5;
+cursor:pointer;
+}
+
+.dot.active{
+opacity:1;
+background:#c6a75e;
+}
+/* ================= PARODONTOLOGIA SLIDER ================= */
+
+.trattamento-slider{
+width:100%;
+max-width:520px;
+overflow:hidden;
+}
+
+.slider-track{
+display:flex;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+scroll-behavior:smooth;
+}
+
+.slider-track img{
+width:100%;
+height:320px;
+object-fit:contain;
+flex-shrink:0;
+scroll-snap-align:start;
+border-radius:12px;
+}
+
+.slider-track::-webkit-scrollbar{
+display:none;
+}
+@keyframes heroZoom {
+  from {
+    background-size: 105%;
+  }
+  to {
+    background-size: 115%;
+  }
+}
+.nav-links a {
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 70vh;
+    height: auto;
+    padding: 40px 20px;
+    justify-content: flex-start;
+  }
+
+}
+.trattamento-video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  
+}
+.footer-hours {
+  margin-top: 15px;
+}
+
+.footer-hours p {
+  margin: 2px 0;
+  font-size: 15px;
+}
+
+.footer-hours strong {
+  color: #3e3a37;
+}
+.footer a {
   color: inherit;
+  text-decoration: none;
+}
+
+.privacy-link {
+  color: #c6a75e;
+}
+.footer-bottom .privacy-link {
+  color: #c6a75e !important;
+}
+/* CARD TRATTAMENTI SOLO MOBILE */
+
+.trattamenti-mobile-card{
+display:none;
+}
+
+@media (max-width:768px){
+
+#trattamenti .card-grid > .card:not(.trattamenti-mobile-card){
+display:none;
+}
+
+.trattamenti-mobile-card{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+border-radius:12px;
+background:#ffffff;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+.card-clickable::after{
+content:"Scopri di più →";
+margin-top:18px;
+font-size:14px;
+color:#c6a75e;
+transition: transform 0.25s ease;
+}
+.card-clickable:active::after{
+transform:translateX(6px);
+}
+
+}
+/* NASCONDI FAQ SU TELEFONO */
+
+@media (max-width: 768px) {
+  .faq-section {
+    display: none;
+  }
+}
+/* ================= PRIMA VISITA ================= */
+
+.prima-visita-grid{
+display:flex;
+justify-content:center;
+}
+
+.prima-visita-grid .card{
+max-width:800px;
 }
