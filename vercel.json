@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/medici/(.*)", "destination": "/index.html" },
+    { "source": "/trattamenti/(.*)", "destination": "/index.html" }
   ]
 }
