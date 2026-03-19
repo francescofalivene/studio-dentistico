@@ -117,10 +117,10 @@ Dentista a Napoli | Studio Associato Cassero Falivene
         : "url(" + heroImages[currentSlide] + ")"
   }}
 >
-    <h1>Odontoiatria e Medicina Orale a Napoli</h1>
+    <h1>Studio Dentistico a Napoli - Cassero Falivene</h1>
     <div className="divider"></div>
     <p>
-      Cura, competenza e attenzione per la salute e l’estetica del tuo sorriso.
+      Studio dentistico a Napoli con un approccio integrato tra odontoiatria e medicina estetica.
     </p>
     <a
       href="tel:+390814206346"
