@@ -180,6 +180,10 @@ content="Trattamento odontoiatrico presso lo Studio Associato Cassero Falivene a
 />
 
 <meta name="robots" content="index, follow" />
+<link
+  rel="canonical"
+  href={"https://studiocasserofalivene.it/trattamenti/" + id}
+/>
 </Helmet>
 
 <section className="section">
